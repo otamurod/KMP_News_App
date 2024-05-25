@@ -13,6 +13,7 @@
 		7555FF83242A565900829871 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7555FF82242A565900829871 /* ContentView.swift */; };
 		9234BF392C006DE9002BDBEC /* AboutDeviceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9234BF382C006DE9002BDBEC /* AboutDeviceView.swift */; };
 		9234BF3B2C00880E002BDBEC /* AboutDeviceScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9234BF3A2C00880E002BDBEC /* AboutDeviceScreen.swift */; };
+		927E2B732C0235D900CCCB61 /* ArticlesScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927E2B722C0235D900CCCB61 /* ArticlesScreen.swift */; };
 		AEDD227E68CA278878B6FB39 /* Pods_iosApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 759AC8EA25C1179DA0D45FBE /* Pods_iosApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +42,7 @@
 		91C6A83C9A883272CD9038CF /* Pods-iosApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iosApp.debug.xcconfig"; path = "Target Support Files/Pods-iosApp/Pods-iosApp.debug.xcconfig"; sourceTree = "<group>"; };
 		9234BF382C006DE9002BDBEC /* AboutDeviceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutDeviceView.swift; sourceTree = "<group>"; };
 		9234BF3A2C00880E002BDBEC /* AboutDeviceScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutDeviceScreen.swift; sourceTree = "<group>"; };
+		927E2B722C0235D900CCCB61 /* ArticlesScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticlesScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +116,7 @@
 		9234BF362C006DAD002BDBEC /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				927E2B712C0235C800CCCB61 /* Articles */,
 				9234BF372C006DB9002BDBEC /* About */,
 			);
 			path = Screens;
@@ -126,6 +129,14 @@
 				9234BF3A2C00880E002BDBEC /* AboutDeviceScreen.swift */,
 			);
 			path = About;
+			sourceTree = "<group>";
+		};
+		927E2B712C0235C800CCCB61 /* Articles */ = {
+			isa = PBXGroup;
+			children = (
+				927E2B722C0235D900CCCB61 /* ArticlesScreen.swift */,
+			);
+			path = Articles;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -243,6 +254,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				927E2B732C0235D900CCCB61 /* ArticlesScreen.swift in Sources */,
 				2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */,
 				9234BF3B2C00880E002BDBEC /* AboutDeviceScreen.swift in Sources */,
 				7555FF83242A565900829871 /* ContentView.swift in Sources */,

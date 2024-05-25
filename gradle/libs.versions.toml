@@ -8,6 +8,7 @@ compose-material3 = "1.1.2"
 androidx-activityCompose = "1.8.0"
 kotlinxCoroutinesCore = "1.8.0"
 lifecycleViewmodelKtx = "2.8.0"
+touchlabSkie = "0.5.5"
 
 [libraries]
 androidx-lifecycle-viewmodel-ktx = { module = "androidx.lifecycle:lifecycle-viewmodel-ktx", version.ref = "lifecycleViewmodelKtx" }
@@ -27,3 +28,4 @@ androidLibrary = { id = "com.android.library", version.ref = "agp" }
 kotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
 kotlinCocoapods = { id = "org.jetbrains.kotlin.native.cocoapods", version.ref = "kotlin" }
+touchlab-skie = { id = "co.touchlab.skie", version.ref = "touchlabSkie" }
