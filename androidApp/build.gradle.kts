@@ -45,4 +45,7 @@ dependencies {
     implementation(libs.compose.material3)
     implementation(libs.androidx.activity.compose)
     debugImplementation(libs.compose.ui.tooling)
+
+    // Coil Image Loading Library
+    implementation(libs.coil.compose)
 }

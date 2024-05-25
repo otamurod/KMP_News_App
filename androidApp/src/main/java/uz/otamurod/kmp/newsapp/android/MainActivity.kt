@@ -3,18 +3,23 @@ package uz.otamurod.kmp.newsapp.android
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.activity.viewModels
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material3.*
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import uz.otamurod.kmp.newsapp.Platform
+import uz.otamurod.kmp.newsapp.android.screens.articles.ArticlesScreen
+import uz.otamurod.kmp.newsapp.articles.ArticlesViewModel
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         Platform().logSystemInfo()
+        val articlesViewModel: ArticlesViewModel by viewModels()
 
         setContent {
             MyApplicationTheme {
@@ -22,22 +27,17 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    GreetingView("Hello Android")
+                    ArticlesScreen(articlesViewModel = articlesViewModel)
                 }
             }
         }
     }
 }
 
-@Composable
-fun GreetingView(text: String) {
-    Text(text = text)
-}
-
 @Preview
 @Composable
 fun DefaultPreview() {
     MyApplicationTheme {
-        GreetingView("Hello, Android!")
+        ArticlesScreen(articlesViewModel = ArticlesViewModel())
     }
 }
