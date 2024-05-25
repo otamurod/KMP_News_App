@@ -9,9 +9,23 @@
 import SwiftUI
 
 struct AboutDeviceScreen: View {
+    @Environment(\.dismiss)
+    private var dismiss
+
     var body: some View {
         NavigationView {
-            AboutDeviceView().navigationTitle("About Device")
+            AboutDeviceView()
+                .navigationTitle("About Device")
+                .toolbar {
+                    ToolbarItem(placement: .primaryAction) {
+                        Button {
+                            dismiss()
+                        }
+                        label: {
+                            Text("Done").bold()
+                        }
+                    }
+                }
         }
     }
 }
