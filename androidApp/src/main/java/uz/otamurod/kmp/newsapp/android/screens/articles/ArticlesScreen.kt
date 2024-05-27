@@ -13,8 +13,12 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Info
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
@@ -39,12 +43,13 @@ import uz.otamurod.kmp.newsapp.articles.model.Article
 
 @Composable
 fun ArticlesScreen(
-    articlesViewModel: ArticlesViewModel
+    articlesViewModel: ArticlesViewModel,
+    onAboutButtonClick: () -> Unit
 ) {
     val articlesState = articlesViewModel.articlesState.collectAsState()
 
     Column(modifier = Modifier.background(color = MaterialTheme.colorScheme.background)) {
-        AppBar()
+        AppBar(onAboutButtonClick = onAboutButtonClick)
         if (articlesState.value.loading) {
             Loader()
         }
@@ -59,8 +64,18 @@ fun ArticlesScreen(
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun AppBar() {
-    TopAppBar(title = { Text(text = "Articles") })
+fun AppBar(onAboutButtonClick: () -> Unit) {
+    TopAppBar(
+        title = { Text(text = "Articles") },
+        actions = {
+            IconButton(onClick = onAboutButtonClick) {
+                Icon(
+                    imageVector = Icons.Default.Info,
+                    contentDescription = "About Device Button"
+                )
+            }
+        }
+    )
 }
 
 @Composable
@@ -160,5 +175,5 @@ fun ArticleImage(article: Article) {
 @Preview(name = "ArticlesScreen")
 @Composable
 private fun PreviewArticlesScreen() {
-    ArticlesScreen(articlesViewModel = ArticlesViewModel())
+    ArticlesScreen(articlesViewModel = ArticlesViewModel(), {})
 }

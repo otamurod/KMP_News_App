@@ -11,7 +11,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import uz.otamurod.kmp.newsapp.Platform
-import uz.otamurod.kmp.newsapp.android.screens.articles.ArticlesScreen
+import uz.otamurod.kmp.newsapp.android.navigation.AppScaffold
 import uz.otamurod.kmp.newsapp.articles.ArticlesViewModel
 
 class MainActivity : ComponentActivity() {
@@ -27,7 +27,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    ArticlesScreen(articlesViewModel = articlesViewModel)
+                    AppScaffold(articlesViewModel = articlesViewModel)
                 }
             }
         }
@@ -38,6 +38,6 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun DefaultPreview() {
     MyApplicationTheme {
-        ArticlesScreen(articlesViewModel = ArticlesViewModel())
+        AppScaffold(articlesViewModel = ArticlesViewModel())
     }
 }

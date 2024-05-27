@@ -48,4 +48,6 @@ dependencies {
 
     // Coil Image Loading Library
     implementation(libs.coil.compose)
+    // Jetpack Compose Navigation
+    implementation(libs.androidx.navigation.compose)
 }
