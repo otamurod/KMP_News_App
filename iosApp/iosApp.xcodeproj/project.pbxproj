@@ -43,6 +43,7 @@
 		9234BF382C006DE9002BDBEC /* AboutDeviceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutDeviceView.swift; sourceTree = "<group>"; };
 		9234BF3A2C00880E002BDBEC /* AboutDeviceScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutDeviceScreen.swift; sourceTree = "<group>"; };
 		927E2B722C0235D900CCCB61 /* ArticlesScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticlesScreen.swift; sourceTree = "<group>"; };
+		92F0F37E2C0472DE00C3D65B /* config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = config.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +93,7 @@
 				7555FF8C242A565B00829871 /* Info.plist */,
 				2152FB032600AC8F00CF470E /* iOSApp.swift */,
 				058557D7273AAEEB004C7B11 /* Preview Content */,
+				92F0F37E2C0472DE00C3D65B /* config.xcconfig */,
 			);
 			path = iosApp;
 			sourceTree = "<group>";

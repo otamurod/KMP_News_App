@@ -9,7 +9,7 @@ data class ArticleResponse(
     val source: SourceResponse,
 
     @SerialName("author")
-    val author: String,
+    val author: String?,
 
     @SerialName("title")
     val title: String,
@@ -27,5 +27,5 @@ data class ArticleResponse(
     val publishedDate: String,
 
     @SerialName("content")
-    val content: String
+    val content: String?
 )

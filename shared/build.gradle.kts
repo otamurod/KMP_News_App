@@ -1,3 +1,6 @@
+import java.io.FileInputStream
+import java.util.Properties
+
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidLibrary)
@@ -13,7 +16,7 @@ kotlin {
             }
         }
     }
-    
+
     listOf(
         iosX64(),
         iosArm64(),
@@ -45,17 +48,30 @@ kotlin {
         }
     }
 
-    task("testClasses"){}
+    task("testClasses") {}
 }
+
+val keystorePropertiesFile = rootProject.file("keystore.properties")
+val keystoreProperties = Properties()
+keystoreProperties.load(FileInputStream(keystorePropertiesFile))
 
 android {
     namespace = "uz.otamurod.kmp.newsapp"
     compileSdk = 34
     defaultConfig {
         minSdk = 21
+        buildConfigField("String", "ARTICLES_API_KEY", "${keystoreProperties["API_KEY"]}")
+    }
+    buildFeatures {
+        buildConfig = true
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
+    }
+    packaging {
+        resources {
+            excludes += "/META-INF/**"
+        }
     }
 }
