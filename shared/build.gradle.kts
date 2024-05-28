@@ -6,6 +6,7 @@ plugins {
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.touchlab.skie)
     alias(libs.plugins.kotlinSerialization)
+    alias(libs.plugins.sqlDelight)
 }
 
 kotlin {
@@ -36,13 +37,16 @@ kotlin {
             implementation(libs.ktor.serialization.kotlinx.json)
             implementation(libs.kotlinx.datetime)
             implementation(libs.koin.core)
+            implementation(libs.sql.coroutines.extensions)
         }
         androidMain.dependencies {
             implementation(libs.androidx.lifecycle.viewmodel.ktx)
             implementation(libs.ktor.client.android)
+            implementation(libs.sql.android.driver)
         }
         iosMain.dependencies {
             implementation(libs.ktor.client.darwin)
+            implementation(libs.sql.native.driver)
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)
@@ -50,6 +54,14 @@ kotlin {
     }
 
     task("testClasses") {}
+}
+
+sqldelight {
+    databases {
+        create(name = "NewsAppDatabase") {
+            packageName.set("uz.otamurod.kmp.newsapp.db")
+        }
+    }
 }
 
 val keystorePropertiesFile = rootProject.file("keystore.properties")
