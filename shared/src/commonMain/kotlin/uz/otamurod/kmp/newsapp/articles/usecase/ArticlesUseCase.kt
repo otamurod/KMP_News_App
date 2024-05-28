@@ -23,6 +23,8 @@ class ArticlesUseCase(private val articlesService: ArticlesService) {
                     imageUrl = articleResponse.imageUrl
                         ?: "https://bookninja.com/wp-content/uploads/2022/04/image-6.png?w=900"
                 )
+            }.filter { article ->
+                article.title != "[Removed]"
             }
         } else {
             println("Error: Empty list fetched!")
