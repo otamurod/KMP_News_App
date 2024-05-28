@@ -6,20 +6,20 @@ import kotlinx.datetime.TimeZone
 import kotlinx.datetime.daysUntil
 import kotlinx.datetime.toLocalDateTime
 import kotlinx.datetime.todayIn
-import uz.otamurod.kmp.newsapp.articles.api.ArticlesService
 import uz.otamurod.kmp.newsapp.articles.model.Article
+import uz.otamurod.kmp.newsapp.articles.repository.ArticlesRepository
 import kotlin.math.abs
 
-class ArticlesUseCase(private val articlesService: ArticlesService) {
+class ArticlesUseCase(private val articlesRepository: ArticlesRepository) {
     suspend fun getArticles(): List<Article> {
-        val articleResponseList = articlesService.fetchArticles()
+        val articleResponseList = articlesRepository.getArticles()
 
         return if (articleResponseList.isNotEmpty()) {
             articleResponseList.map { articleResponse ->
                 Article(
                     title = articleResponse.title,
                     description = articleResponse.description ?: "Click to find out more...",
-                    date = getFormattedDay(articleResponse.publishedDate),
+                    date = getFormattedDay(articleResponse.date),
                     imageUrl = articleResponse.imageUrl
                         ?: "https://bookninja.com/wp-content/uploads/2022/04/image-6.png?w=900"
                 )
