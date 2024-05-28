@@ -24,9 +24,9 @@ class ArticlesService(private val httpClient: HttpClient) {
                 articlesResponse.articles.map { articleResponse ->
                     Article(
                         title = articleResponse.title,
-                        description = articleResponse.description,
+                        description = articleResponse.description?: "Click to find out more...",
                         date = articleResponse.publishedDate,
-                        imageUrl = articleResponse.imageUrl
+                        imageUrl = articleResponse.imageUrl?: "https://bookninja.com/wp-content/uploads/2022/04/image-6.png?w=900"
                     )
                 }
             } else {

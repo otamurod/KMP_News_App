@@ -28,7 +28,7 @@ class ArticlesLocalDataSource(
         date: String,
         imageUrl: String?
     ): Article {
-        return Article(title = title, description = description, date = date, imageUrl = imageUrl)
+        return Article(title = title, description = description!!, date = date, imageUrl = imageUrl)
     }
 
     private fun insertArticle(article: Article) {

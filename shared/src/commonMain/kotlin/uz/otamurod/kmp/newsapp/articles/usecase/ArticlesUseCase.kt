@@ -18,10 +18,9 @@ class ArticlesUseCase(private val articlesRepository: ArticlesRepository) {
             articleResponseList.map { articleResponse ->
                 Article(
                     title = articleResponse.title,
-                    description = articleResponse.description ?: "Click to find out more...",
+                    description = articleResponse.description,
                     date = getFormattedDay(articleResponse.date),
                     imageUrl = articleResponse.imageUrl
-                        ?: "https://bookninja.com/wp-content/uploads/2022/04/image-6.png?w=900"
                 )
             }.filter { article ->
                 article.title != "[Removed]"
