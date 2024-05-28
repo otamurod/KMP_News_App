@@ -38,12 +38,13 @@ import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
 import coil.compose.AsyncImagePainter
 import coil.compose.rememberAsyncImagePainter
+import org.koin.androidx.compose.koinViewModel
 import uz.otamurod.kmp.newsapp.articles.ArticlesViewModel
 import uz.otamurod.kmp.newsapp.articles.model.Article
 
 @Composable
 fun ArticlesScreen(
-    articlesViewModel: ArticlesViewModel,
+    articlesViewModel: ArticlesViewModel = koinViewModel(),
     onAboutButtonClick: () -> Unit
 ) {
     val articlesState = articlesViewModel.articlesState.collectAsState()
@@ -175,5 +176,5 @@ fun ArticleImage(article: Article) {
 @Preview(name = "ArticlesScreen")
 @Composable
 private fun PreviewArticlesScreen() {
-    ArticlesScreen(articlesViewModel = ArticlesViewModel(), {})
+    ArticlesScreen(articlesViewModel = koinViewModel(), {})
 }

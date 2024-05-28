@@ -55,4 +55,7 @@ dependencies {
     implementation(libs.coil.compose)
     // Jetpack Compose Navigation
     implementation(libs.androidx.navigation.compose)
+    // Koin
+    implementation(libs.koin.android)
+    implementation(libs.koin.androidx.compose)
 }
