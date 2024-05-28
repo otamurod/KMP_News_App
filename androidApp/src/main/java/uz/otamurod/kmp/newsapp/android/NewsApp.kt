@@ -3,6 +3,7 @@ package uz.otamurod.kmp.newsapp.android
 import android.app.Application
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
+import uz.otamurod.kmp.newsapp.android.di.databaseModule
 import uz.otamurod.kmp.newsapp.android.di.viewModelsModule
 import uz.otamurod.kmp.newsapp.di.sharedKoinModules
 
@@ -13,7 +14,7 @@ class NewsApp : Application() {
     }
 
     private fun initKoin() {
-        val modules = sharedKoinModules + viewModelsModule
+        val modules = sharedKoinModules + viewModelsModule + databaseModule
         startKoin {
             androidContext(this@NewsApp)
             modules(modules = modules)
