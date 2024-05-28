@@ -1,0 +1,20 @@
+-- Query to create a table for Articles
+CREATE TABLE Article (
+    title TEXT NOT NULL,
+    description TEXT,
+    date TEXT NOT NULL,
+    imageUrl TEXT
+);
+
+-- Function to insert rows to a table
+insertArticle:
+INSERT INTO Article (title, description, date, imageUrl)
+VALUES (?, ?, ?, ?);
+
+-- Function to select all rows from a table
+selectAllArticles:
+SELECT Article.* FROM Article;
+
+-- Function to delete all rows from a table
+deleteAllArticles:
+DELETE FROM Article;
