@@ -6,7 +6,7 @@ import org.koin.core.context.startKoin
 import uz.otamurod.kmp.newsapp.articles.ArticlesViewModel
 
 fun initKoin() {
-    val modules = sharedKoinModules
+    val modules = sharedKoinModules + databaseModule
 
     startKoin {
         modules(modules = modules)
