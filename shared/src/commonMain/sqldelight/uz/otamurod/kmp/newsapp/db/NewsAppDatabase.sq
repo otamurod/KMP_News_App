@@ -1,5 +1,5 @@
 -- Query to create a table for Articles
-CREATE TABLE Article (
+CREATE TABLE ArticleEntity (
     title TEXT NOT NULL,
     description TEXT,
     date TEXT NOT NULL,
@@ -8,13 +8,13 @@ CREATE TABLE Article (
 
 -- Function to insert rows to a table
 insertArticle:
-INSERT INTO Article (title, description, date, imageUrl)
+INSERT INTO ArticleEntity (title, description, date, imageUrl)
 VALUES (?, ?, ?, ?);
 
 -- Function to select all rows from a table
 selectAllArticles:
-SELECT Article.* FROM Article;
+SELECT ArticleEntity.* FROM ArticleEntity;
 
 -- Function to delete all rows from a table
 deleteAllArticles:
-DELETE FROM Article;
+DELETE FROM ArticleEntity;

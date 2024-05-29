@@ -1,16 +1,18 @@
 package uz.otamurod.kmp.newsapp.articles.di
 
 import org.koin.dsl.module
-import uz.otamurod.kmp.newsapp.articles.ArticlesViewModel
-import uz.otamurod.kmp.newsapp.articles.api.ArticlesService
-import uz.otamurod.kmp.newsapp.articles.datasource.ArticlesLocalDataSource
-import uz.otamurod.kmp.newsapp.articles.repository.ArticlesRepository
-import uz.otamurod.kmp.newsapp.articles.usecase.ArticlesUseCase
+import uz.otamurod.kmp.newsapp.articles.data.database.datasource.ArticlesLocalDataSource
+import uz.otamurod.kmp.newsapp.articles.data.network.api.ArticlesService
+import uz.otamurod.kmp.newsapp.articles.data.repository.ArticlesRepository
+import uz.otamurod.kmp.newsapp.articles.data.usecase.ArticlesUseCase
+import uz.otamurod.kmp.newsapp.articles.domain.api.repository.ArticlesRepositoryApi
+import uz.otamurod.kmp.newsapp.articles.domain.usecase.ArticlesUseCaseApi
+import uz.otamurod.kmp.newsapp.articles.presentation.ArticlesViewModel
 
 val articlesModule = module {
     single<ArticlesService> { ArticlesService(get()) }
-    single<ArticlesUseCase> { ArticlesUseCase(get()) }
+    single<ArticlesUseCaseApi> { ArticlesUseCase(get()) }
     single<ArticlesViewModel> { ArticlesViewModel(get()) }
     single<ArticlesLocalDataSource> { ArticlesLocalDataSource(get()) }
-    single<ArticlesRepository> { ArticlesRepository(get(), get()) }
+    single<ArticlesRepositoryApi> { ArticlesRepository(get(), get()) }
 }
