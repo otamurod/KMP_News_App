@@ -11,8 +11,8 @@ import uz.otamurod.kmp.newsapp.articles.repository.ArticlesRepository
 import kotlin.math.abs
 
 class ArticlesUseCase(private val articlesRepository: ArticlesRepository) {
-    suspend fun getArticles(): List<Article> {
-        val articleResponseList = articlesRepository.getArticles()
+    suspend fun getArticles(forceFetch: Boolean): List<Article> {
+        val articleResponseList = articlesRepository.getArticles(forceFetch)
 
         return if (articleResponseList.isNotEmpty()) {
             articleResponseList.map { articleResponse ->

@@ -8,14 +8,26 @@ class ArticlesRepository(
     private val dataSource: ArticlesLocalDataSource,
     private val service: ArticlesService
 ) {
-    suspend fun getArticles(): List<Article> {
+    suspend fun getArticles(forceFetch: Boolean): List<Article> {
+        if (forceFetch) {
+            // Clear Database
+            dataSource.deleteAllArticles()
+
+            // Fetch New Articles
+            return fetchArticles()
+        }
+
         val localArticles = dataSource.getAllArticles()
         if (localArticles.isEmpty()) {
-            val fetchedArticles = service.fetchArticles()
-            dataSource.insertArticles(fetchedArticles)
-            return fetchedArticles
+            return fetchArticles()
         }
 
         return localArticles
+    }
+
+    private suspend fun fetchArticles(): List<Article> {
+        val fetchedArticles = service.fetchArticles()
+        dataSource.insertArticles(fetchedArticles)
+        return fetchedArticles
     }
 }
