@@ -9,13 +9,11 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Info
-import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -38,6 +36,8 @@ import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
 import coil.compose.AsyncImagePainter
 import coil.compose.rememberAsyncImagePainter
+import com.google.accompanist.swiperefresh.SwipeRefresh
+import com.google.accompanist.swiperefresh.SwipeRefreshState
 import org.koin.androidx.compose.koinViewModel
 import uz.otamurod.kmp.newsapp.articles.ArticlesViewModel
 import uz.otamurod.kmp.newsapp.articles.model.Article
@@ -51,14 +51,11 @@ fun ArticlesScreen(
 
     Column(modifier = Modifier.background(color = MaterialTheme.colorScheme.background)) {
         AppBar(onAboutButtonClick = onAboutButtonClick)
-        if (articlesState.value.loading) {
-            Loader()
-        }
         if (articlesState.value.error != null) {
             ErrorMessage(articlesState.value.error!!)
         }
         if (articlesState.value.articles.isNotEmpty()) {
-            ArticlesListView(articlesState.value.articles)
+            ArticlesListView(articlesViewModel)
         }
     }
 }
@@ -80,20 +77,6 @@ fun AppBar(onAboutButtonClick: () -> Unit) {
 }
 
 @Composable
-fun Loader() {
-    Box(
-        modifier = Modifier.fillMaxSize(),
-        contentAlignment = Alignment.Center
-    ) {
-        CircularProgressIndicator(
-            modifier = Modifier.width(64.dp),
-            color = MaterialTheme.colorScheme.surfaceVariant,
-            trackColor = MaterialTheme.colorScheme.secondary,
-        )
-    }
-}
-
-@Composable
 fun ErrorMessage(message: String) {
     Box(
         modifier = Modifier.fillMaxSize(),
@@ -107,11 +90,20 @@ fun ErrorMessage(message: String) {
 }
 
 @Composable
-fun ArticlesListView(articles: List<Article>) {
+fun ArticlesListView(articlesViewModel: ArticlesViewModel) {
+    // Show Swipe Refresh Indicator According To The State
+    val swipeRefreshState = SwipeRefreshState(articlesViewModel.articlesState.value.loading)
 
-    LazyColumn(modifier = Modifier.fillMaxSize()) {
-        items(articles) { article ->
-            ArticleItemView(article = article)
+    SwipeRefresh(
+        state = swipeRefreshState,
+        onRefresh = {
+            articlesViewModel.getArticles(forceFetch = true)
+        }
+    ) {
+        LazyColumn(modifier = Modifier.fillMaxSize()) {
+            items(articlesViewModel.articlesState.value.articles) { article ->
+                ArticleItemView(article = article)
+            }
         }
     }
 }
