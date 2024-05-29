@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -15,6 +15,7 @@
 		9234BF3B2C00880E002BDBEC /* AboutDeviceScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9234BF3A2C00880E002BDBEC /* AboutDeviceScreen.swift */; };
 		927E2B732C0235D900CCCB61 /* ArticlesScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927E2B722C0235D900CCCB61 /* ArticlesScreen.swift */; };
 		92C883212C06149B004FA099 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 92C883202C06149B004FA099 /* libsqlite3.tbd */; };
+		92E5F2EB2C06FF29004A7035 /* BBRefreshableScrollView in Frameworks */ = {isa = PBXBuildFile; productRef = 92E5F2EA2C06FF29004A7035 /* BBRefreshableScrollView */; };
 		AEDD227E68CA278878B6FB39 /* Pods_iosApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 759AC8EA25C1179DA0D45FBE /* Pods_iosApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -53,6 +54,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92E5F2EB2C06FF29004A7035 /* BBRefreshableScrollView in Frameworks */,
 				92C883212C06149B004FA099 /* libsqlite3.tbd in Frameworks */,
 				AEDD227E68CA278878B6FB39 /* Pods_iosApp.framework in Frameworks */,
 			);
@@ -164,6 +166,9 @@
 			dependencies = (
 			);
 			name = iosApp;
+			packageProductDependencies = (
+				92E5F2EA2C06FF29004A7035 /* BBRefreshableScrollView */,
+			);
 			productName = iosApp;
 			productReference = 7555FF7B242A565900829871 /* iosApp.app */;
 			productType = "com.apple.product-type.application";
@@ -192,6 +197,10 @@
 				Base,
 			);
 			mainGroup = 7555FF72242A565900829871;
+			packageReferences = (
+				925824BE2C06D7C100A4A42F /* XCRemoteSwiftPackageReference "SwiftUI-PullToRefresh" */,
+				92E5F2E92C06FF29004A7035 /* XCRemoteSwiftPackageReference "BBRefreshableScrollView" */,
+			);
 			productRefGroup = 7555FF7C242A565900829871 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -469,6 +478,33 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		925824BE2C06D7C100A4A42F /* XCRemoteSwiftPackageReference "SwiftUI-PullToRefresh" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AppPear/SwiftUI-PullToRefresh";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+		92E5F2E92C06FF29004A7035 /* XCRemoteSwiftPackageReference "BBRefreshableScrollView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/bibinjacobpulickal/BBRefreshableScrollView";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.0.3;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		92E5F2EA2C06FF29004A7035 /* BBRefreshableScrollView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 92E5F2E92C06FF29004A7035 /* XCRemoteSwiftPackageReference "BBRefreshableScrollView" */;
+			productName = BBRefreshableScrollView;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 7555FF73242A565900829871 /* Project object */;
 }

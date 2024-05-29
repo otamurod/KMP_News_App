@@ -5,14 +5,17 @@ struct ContentView: View {
     @State private var shouldOpenAbout = false
 
     var body: some View {
+        let articlesScreen = ArticlesScreen(viewModel: .init())
+
         NavigationView {
-            ArticlesScreen(viewModel: .init())
+            articlesScreen
+                .navigationTitle(Text("Articles")).navigationBarTitleDisplayMode(.inline)
                 .toolbar {
                     ToolbarItem {
                         Button {
                             shouldOpenAbout = true
                         } label: {
-                            Label("About", systemImage: "info.circle").labelStyle(.titleAndIcon)
+                            Label("About", systemImage: "info.circle").labelStyle(.titleAndIcon).font(.footnote)
                         }.popover(isPresented: $shouldOpenAbout) {
                             AboutDeviceScreen()
                         }

@@ -6,6 +6,7 @@
 //  Copyright © 2024 orgName. All rights reserved.
 //
 
+import BBRefreshableScrollView
 import shared
 import SwiftUI
 
@@ -36,16 +37,16 @@ struct ArticlesScreen: View {
 
     var body: some View {
         VStack {
-            AppBar()
-
             if viewModel.articlesState.loading {
-                Loader()
+                Loader().frame(maxWidth: .infinity, alignment: .center)
             }
             if let error = viewModel.articlesState.error {
-                ErrorMessage(message: error)
+                ErrorMessage(message: error).frame(maxWidth: .infinity, alignment: .center)
             }
             if !viewModel.articlesState.articles.isEmpty {
-                ScrollView {
+                BBRefreshableScrollView { _ in
+                    viewModel.articlesViewModel.getArticles(forceFetch: true)
+                } content: {
                     LazyVStack(spacing: 10) {
                         ForEach(viewModel.articlesState.articles, id: \.self) { article in
                             ArticleItemView(article: article)
@@ -56,14 +57,6 @@ struct ArticlesScreen: View {
         }.onAppear {
             self.viewModel.startObserving()
         }
-    }
-}
-
-struct AppBar: View {
-    var body: some View {
-        Text("Articles")
-            .font(.largeTitle)
-            .fontWeight(.bold)
     }
 }
 
@@ -80,7 +73,7 @@ struct ArticleItemView: View {
                 } else if phase.error != nil {
                     Text("Image Load Error")
                 } else {
-                    ProgressView()
+                    ProgressView().frame(maxWidth: .infinity, alignment: .center)
                 }
             }
             Text(article.title)
@@ -95,7 +88,7 @@ struct ArticleItemView: View {
 
 struct Loader: View {
     var body: some View {
-        ProgressView().frame(maxWidth: .infinity, alignment: .center)
+        ProgressView()
     }
 }
 

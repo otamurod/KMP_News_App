@@ -16,13 +16,14 @@ struct AboutDeviceScreen: View {
         NavigationView {
             AboutDeviceView()
                 .navigationTitle("About Device")
+                .navigationBarTitleDisplayMode(.inline)
                 .toolbar {
                     ToolbarItem(placement: .primaryAction) {
                         Button {
                             dismiss()
                         }
                         label: {
-                            Text("Done").bold()
+                            Text("Done").bold().font(.footnote)
                         }
                     }
                 }
