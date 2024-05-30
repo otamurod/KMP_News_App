@@ -21,7 +21,7 @@ import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
 import coil.compose.AsyncImagePainter
 import coil.compose.rememberAsyncImagePainter
-import uz.otamurod.kmp.newsapp.articles.domain.api.model.Article
+import uz.otamurod.kmp.newsapp.feature.articles.domain.api.model.Article
 
 @Composable
 fun ArticleItemView(article: Article) {

@@ -7,7 +7,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import com.google.accompanist.swiperefresh.SwipeRefresh
 import com.google.accompanist.swiperefresh.SwipeRefreshState
-import uz.otamurod.kmp.newsapp.articles.presentation.ArticlesViewModel
+import uz.otamurod.kmp.newsapp.feature.articles.presentation.ArticlesViewModel
 
 @Composable
 fun ArticlesListView(articlesViewModel: ArticlesViewModel) {

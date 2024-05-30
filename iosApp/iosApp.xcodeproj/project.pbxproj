@@ -14,6 +14,7 @@
 		9234BF392C006DE9002BDBEC /* AboutDeviceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9234BF382C006DE9002BDBEC /* AboutDeviceView.swift */; };
 		9234BF3B2C00880E002BDBEC /* AboutDeviceScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9234BF3A2C00880E002BDBEC /* AboutDeviceScreen.swift */; };
 		927E2B732C0235D900CCCB61 /* ArticlesScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927E2B722C0235D900CCCB61 /* ArticlesScreen.swift */; };
+		929D13382C08A5530079BBC2 /* SourcesScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929D13372C08A5530079BBC2 /* SourcesScreen.swift */; };
 		92C883212C06149B004FA099 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 92C883202C06149B004FA099 /* libsqlite3.tbd */; };
 		92E5F2EB2C06FF29004A7035 /* BBRefreshableScrollView in Frameworks */ = {isa = PBXBuildFile; productRef = 92E5F2EA2C06FF29004A7035 /* BBRefreshableScrollView */; };
 		AEDD227E68CA278878B6FB39 /* Pods_iosApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 759AC8EA25C1179DA0D45FBE /* Pods_iosApp.framework */; };
@@ -45,6 +46,7 @@
 		9234BF382C006DE9002BDBEC /* AboutDeviceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutDeviceView.swift; sourceTree = "<group>"; };
 		9234BF3A2C00880E002BDBEC /* AboutDeviceScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutDeviceScreen.swift; sourceTree = "<group>"; };
 		927E2B722C0235D900CCCB61 /* ArticlesScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticlesScreen.swift; sourceTree = "<group>"; };
+		929D13372C08A5530079BBC2 /* SourcesScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourcesScreen.swift; sourceTree = "<group>"; };
 		92C883202C06149B004FA099 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		92F0F37E2C0472DE00C3D65B /* config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = config.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -124,6 +126,7 @@
 		9234BF362C006DAD002BDBEC /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				929D13362C08A4DF0079BBC2 /* Sources */,
 				927E2B712C0235C800CCCB61 /* Articles */,
 				9234BF372C006DB9002BDBEC /* About */,
 			);
@@ -145,6 +148,14 @@
 				927E2B722C0235D900CCCB61 /* ArticlesScreen.swift */,
 			);
 			path = Articles;
+			sourceTree = "<group>";
+		};
+		929D13362C08A4DF0079BBC2 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				929D13372C08A5530079BBC2 /* SourcesScreen.swift */,
+			);
+			path = Sources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -269,6 +280,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				929D13382C08A5530079BBC2 /* SourcesScreen.swift in Sources */,
 				927E2B732C0235D900CCCB61 /* ArticlesScreen.swift in Sources */,
 				2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */,
 				9234BF3B2C00880E002BDBEC /* AboutDeviceScreen.swift in Sources */,

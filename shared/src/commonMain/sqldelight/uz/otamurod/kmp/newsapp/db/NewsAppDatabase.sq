@@ -18,3 +18,24 @@ SELECT ArticleEntity.* FROM ArticleEntity;
 -- Function to delete all rows from a table
 deleteAllArticles:
 DELETE FROM ArticleEntity;
+
+CREATE TABLE SourceEntity (
+    id TEXT NOT NULL,
+    name TEXT NOT NULL,
+    description TEXT NOT NULL,
+    url TEXT NOT NULL,
+    category TEXT NOT NULL,
+    language TEXT NOT NULL,
+    country TEXT NOT NULL
+);
+
+insertSource:
+INSERT INTO SourceEntity(id, name, description, url, category, language, country)
+VALUES(?, ?, ?, ?, ?, ?, ?);
+
+selectAllSources:
+SELECT SourceEntity.*
+FROM SourceEntity;
+
+removeAllSources:
+DELETE FROM SourceEntity;

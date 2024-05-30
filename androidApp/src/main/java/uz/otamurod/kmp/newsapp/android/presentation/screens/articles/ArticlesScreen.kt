@@ -11,17 +11,21 @@ import org.koin.androidx.compose.koinViewModel
 import uz.otamurod.kmp.newsapp.android.presentation.screens.articles.components.AppBar
 import uz.otamurod.kmp.newsapp.android.presentation.screens.articles.components.ArticlesListView
 import uz.otamurod.kmp.newsapp.android.presentation.screens.articles.components.ErrorMessage
-import uz.otamurod.kmp.newsapp.articles.presentation.ArticlesViewModel
+import uz.otamurod.kmp.newsapp.feature.articles.presentation.ArticlesViewModel
 
 @Composable
 fun ArticlesScreen(
     articlesViewModel: ArticlesViewModel = koinViewModel(),
+    onSourcesButtonClick: () -> Unit,
     onAboutButtonClick: () -> Unit
 ) {
     val articlesState = articlesViewModel.articlesState.collectAsState()
 
     Column(modifier = Modifier.background(color = MaterialTheme.colorScheme.background)) {
-        AppBar(onAboutButtonClick = onAboutButtonClick)
+        AppBar(
+            onSourcesButtonClick = onSourcesButtonClick,
+            onAboutButtonClick = onAboutButtonClick
+        )
         if (articlesState.value.error != null) {
             ErrorMessage(articlesState.value.error!!)
         }
@@ -34,5 +38,5 @@ fun ArticlesScreen(
 @Preview(name = "ArticlesScreen")
 @Composable
 private fun PreviewArticlesScreen() {
-    ArticlesScreen(articlesViewModel = koinViewModel(), {})
+    ArticlesScreen(articlesViewModel = koinViewModel(), {}, {})
 }

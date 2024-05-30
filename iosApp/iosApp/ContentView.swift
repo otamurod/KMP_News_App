@@ -3,20 +3,34 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var shouldOpenAbout = false
+    @State private var shouldOpenSources = false
 
     var body: some View {
-        let articlesScreen = ArticlesScreen(viewModel: .init())
-
         NavigationView {
-            articlesScreen
-                .navigationTitle(Text("Articles")).navigationBarTitleDisplayMode(.inline)
+            ArticlesScreen(viewModel: .init())
+                .navigationTitle(Text("Articles"))
+                .navigationBarTitleDisplayMode(.inline)
                 .toolbar {
-                    ToolbarItem {
+                    ToolbarItemGroup(placement: .navigationBarTrailing) {
+                        Button {
+                            shouldOpenSources = true
+                        } label: {
+                            Label("Sources", systemImage: "list.bullet.rectangle")
+                                .labelStyle(.iconOnly)
+                                .font(.footnote)
+                        }
+                        .popover(isPresented: $shouldOpenSources) {
+                            SourcesScreen(viewModel: .init())
+                        }
+
                         Button {
                             shouldOpenAbout = true
                         } label: {
-                            Label("About", systemImage: "info.circle").labelStyle(.titleAndIcon).font(.footnote)
-                        }.popover(isPresented: $shouldOpenAbout) {
+                            Label("About", systemImage: "info.circle")
+                                .labelStyle(.iconOnly)
+                                .font(.footnote)
+                        }
+                        .popover(isPresented: $shouldOpenAbout) {
                             AboutDeviceScreen()
                         }
                     }
