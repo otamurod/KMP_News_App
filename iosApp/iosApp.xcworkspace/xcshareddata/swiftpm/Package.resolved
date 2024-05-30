@@ -1,0 +1,23 @@
+{
+  "pins" : [
+    {
+      "identity" : "bbrefreshablescrollview",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/bibinjacobpulickal/BBRefreshableScrollView",
+      "state" : {
+        "revision" : "71f09fc041a7e6977db152821214d3adb172cd6b",
+        "version" : "0.0.3"
+      }
+    },
+    {
+      "identity" : "swiftui-pulltorefresh",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/AppPear/SwiftUI-PullToRefresh",
+      "state" : {
+        "revision" : "5850f1ead6c4931015231bde26f38b9f543342aa",
+        "version" : "1.0.0"
+      }
+    }
+  ],
+  "version" : 2
+}

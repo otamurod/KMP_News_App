@@ -36,6 +36,11 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+    packaging {
+        resources {
+            excludes += "/META-INF/**"
+        }
+    }
 }
 
 dependencies {
@@ -45,4 +50,14 @@ dependencies {
     implementation(libs.compose.material3)
     implementation(libs.androidx.activity.compose)
     debugImplementation(libs.compose.ui.tooling)
+
+    // Coil Image Loading Library
+    implementation(libs.coil.compose)
+    // Jetpack Compose Navigation
+    implementation(libs.androidx.navigation.compose)
+    // Koin
+    implementation(libs.koin.android)
+    implementation(libs.koin.androidx.compose)
+    // Swipe Refresh
+    implementation (libs.accompanist.swiperefresh)
 }

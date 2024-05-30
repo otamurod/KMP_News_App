@@ -1,0 +1,41 @@
+-- Query to create a table for Articles
+CREATE TABLE ArticleEntity (
+    title TEXT NOT NULL,
+    description TEXT,
+    date TEXT NOT NULL,
+    imageUrl TEXT
+);
+
+-- Function to insert rows to a table
+insertArticle:
+INSERT INTO ArticleEntity (title, description, date, imageUrl)
+VALUES (?, ?, ?, ?);
+
+-- Function to select all rows from a table
+selectAllArticles:
+SELECT ArticleEntity.* FROM ArticleEntity;
+
+-- Function to delete all rows from a table
+deleteAllArticles:
+DELETE FROM ArticleEntity;
+
+CREATE TABLE SourceEntity (
+    id TEXT NOT NULL,
+    name TEXT NOT NULL,
+    description TEXT NOT NULL,
+    url TEXT NOT NULL,
+    category TEXT NOT NULL,
+    language TEXT NOT NULL,
+    country TEXT NOT NULL
+);
+
+insertSource:
+INSERT INTO SourceEntity(id, name, description, url, category, language, country)
+VALUES(?, ?, ?, ?, ?, ?, ?);
+
+selectAllSources:
+SELECT SourceEntity.*
+FROM SourceEntity;
+
+removeAllSources:
+DELETE FROM SourceEntity;
